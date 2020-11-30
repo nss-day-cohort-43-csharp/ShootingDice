@@ -19,15 +19,20 @@ namespace ShootingDice
             int myRoll = Roll();
             int otherRoll = other.Roll();
 
-            Console.WriteLine($"{Name} rolls a {myRoll}");
-            Console.WriteLine($"{other.Name} rolls a {otherRoll}");
-            if (myRoll > otherRoll)
+            DeclareWinner(this, myRoll, other, otherRoll);
+        }
+
+        public void DeclareWinner(Player player1, int roll1, Player player2, int roll2)
+        {
+            Console.WriteLine($"{player1.Name} rolls a {roll1}");
+            Console.WriteLine($"{player2.Name} rolls a {roll2}");
+            if (roll1 > roll2)
             {
-                Console.WriteLine($"{Name} Wins!");
+                Console.WriteLine($"{player1.Name} Wins!");
             }
-            else if (myRoll < otherRoll)
+            else if (roll1 < roll2)
             {
-                Console.WriteLine($"{other.Name} Wins!");
+                Console.WriteLine($"{player2.Name} Wins!");
             }
             else
             {

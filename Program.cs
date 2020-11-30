@@ -25,6 +25,23 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            Player player4 = new SmackTalkingPlayer();
+            player4.Name = "Brady";
+
+            Player player5 = new OneHigherPlayer();
+            player5.Name = "Erik";
+
+            player5.Play(player4);
+
+            Console.WriteLine("-------------------");
+
+            Player player6 = new HumanPlayer();
+            player6.Name = "Ember";
+
+            // player4.Play(player6);
+
+            Console.WriteLine("-------------------");
+
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
 
@@ -32,8 +49,32 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
-            List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+            Player player7 = new CreativeSmackTalkingPlayer();
+            player7.Name = "Travis";
+
+            player7.Play(player4);
+
+            Console.WriteLine("-------------------");
+
+            Player player8 = new SoreLoserPlayer();
+            player8.Name = "Sam";
+
+            try
+            {
+                player8.Play(player4);
+            }
+            catch (RageQuitException)
+            {
+                Console.WriteLine($"{player8.Name} rage quit");
+            }
+
+            List<Player> players = new List<Player>()
+            {
+                player1,
+                player2,
+                player3,
+                player4,
+                large
             };
 
             PlayMany(players);
